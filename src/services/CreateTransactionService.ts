@@ -17,7 +17,6 @@ class CreateTransactionService {
   public execute({ title, value, type }: Request): Transaction {
     if (type === 'outcome') {
       const balance = this.transactionsRepository.getBalance();
-      console.log(balance);
 
       if (balance.total < value) {
         throw new Error('Not allowed');
